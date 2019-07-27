@@ -1,0 +1,31 @@
+<!-- /templates/home.html -->
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <style>
+      table {font-family: arial, sans-serif; border-collapse: collapse; width: 100%;}
+      td, th {border: 1px solid #dddddd; text-align: left; padding: 8px;}
+      tr:nth-child(even) {background-color: #dddddd;}
+    </style>
+    <title>Members</title>
+     <!-- Commented out until I have time to fix. Reduces Print button to microsize.
+    <link rel=stylesheet href="{{ url_for('static', filename='style.css') }}" />
+    -->
+  </head>
+
+  <body>
+    <h3>Membership</h3> 
+    <table>
+      <tr><th>Member ID</th><th>Last Name</th></tr>
+      <nav><a href="{{ url_for('print_pdf', members=members) }}">Print</a></nav>  
+      {% for member in members %}
+        <tr>
+          <td><p> {{ member.member_id }} </p></td>
+          <td><p> {{ member.last_name }} </p></td>
+        </tr>
+      {% endfor %}
+    </table>  
+  </body>
+
+  </html>
